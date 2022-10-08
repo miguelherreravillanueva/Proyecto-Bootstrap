@@ -1,74 +1,85 @@
-
-
-const myForm = document.getElementById("myForm")
+const myForm = document.getElementById("myForm");
 const firstName = document.getElementById("name");
 const email = document.getElementById("email");
-const password1 = document.getElementById("password1");
-const password2 = document.getElementById("password2");
-const submit = document.getElementById("submit")
+const password1 = document.getElementById("password");
+const password2 = document.getElementById("confirmPassword");
+const submit = document.getElementById("submit");
 const showUser = document.querySelector(".showUser");
+const msgPass1 = document.querySelector(".msgPass1");
+const msgPass2 = document.querySelector(".msgPass2");
 
 function onSubmit(e) {
-    e.preventDefault();
-    //Validación que obliga a rellenar todos los campos
-    if (firstName.value === "" || email.value === "") {
-        showUser.innerHTML = "Por favor, rellena los campos.";
-        //Validación para el correo
-    } else if (/(\w+?@\w+?\x2E.+)/.test(email.value) !== true) {
-        showUser.innerHTML = "Por favor, introduce un formato de correo correcto.";
-    } else {
-        showUser.innerHTML = "Tus credenciales han sido guardadas, gracias.";
-    }
-    //Validación de formulario correcto de 3 seg.
+  e.preventDefault();
+
+  const person = {
+    name: firstName.value,
+    email: email.value,
+    password1: password1.value,
+    password2: password2.value,
+  };
+
+  //Validación que obliga a rellenar todos los campos
+  if (firstName.value === "" || email.value === "") {
+    showUser.innerHTML = `<div class="alert alert-primary" role="alert">Por favor, rellena los campos.</div>`;
+    //Validación para el correo
+  } else if (/(\w+?@\w+?\x2E.+)/.test(email.value) == false) {
+    showUser.innerHTML = `<div class="alert alert-primary" role="alert">Por favor, introduce un formato de correo correcto.</div>`;
+  } else if (password1.value.length == "") {
+    msgPass1.innerHTML = `<div class="alert alert-warning" role="alert">Por favor, escribe una contraseña.</div>`;
+    password1.focus();
+  } else if (password2.value.length == "") {
+    msgPass2.innerHTML = `<div class="alert alert-warning" role="alert">Confirma tu contraseña.</div>`;
+    password2.focus();
+  } else if (password1.value !== password2.value) {
+    showUser.innerHTML = `<div class="alert alert-warning" role="alert">Las contraseñas deben coincidir.</div>`;
+  } else {
+    showUser.innerHTML = `<div class="alert alert-success" role="alert">Tus credenciales han sido guardadas, correctamente!</div>`;
+  }
+  //Validación de formulario correcto de 3 seg.
+  setTimeout(function () {
+    showUser.innerHTML = "";
+    msgPass1.innerHTML = "";
+    msgPass2.innerHTML = "";
+  }, 3000);
+
+  if (
+    firstName.value !== "" &&
+    email.value !== "" &&
+    password1.value !== "" &&
+    password2.value !== ""
+  ) {
     setTimeout(function () {
-        showUser.innerHTML = "";
+      window.location.href = "pages/users.html";
     }, 3000);
+  }
 
-    const user = {
-        name: firstName.value,
-        email: email.value,
-        password1: password1.value,
-        password2: password2.value,
-    };
-    localStorage.setItem("userStorage", JSON.stringify(user));
+  arrUsers.push(person);
 
-    // paintUser();
+  localStorage.setItem("user", JSON.stringify(arrUsers));
 
+  const users = JSON.parse(localStorage.getItem("user"));
+
+  const user = users[users.length - 1];
+
+  divUser.innerHTML = `<div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${user.name}</h5>            
+            <p><b>Email: </b>${user.email}</p>
+          </div>   
+        </div>
+      </div>
+    </div>`;
 }
 
-function verifyPassword() {  //ESTA FUNCIÓN DEBE IR ENLAZADA CON LA ANTERIOR, PERO NO SÉ CUÁNTOS else if SE PUEDEN HACER EN UNA MISMA FUNCIÓN.
-    //Validación de contraseña
-    if (password1.length == 0 || password2.length == 0) {
-        alert("Por favor, escribe una contraseña.")
-    }
-    //  Validación para que ambas contraseñas coincidan
-    if (password1 != password2) {
-        alert("Las contraseñas deben coincidir.");
-        return false;
-        //Validación de contraseña
-    } else {
-        alert("Contraseña correcta.");
-        return true;
-    }
-    //Validación de contraseña errónea 3 seg. (ESTE CÓDIGO NO SE LEE, LO MÁS PROBABLE ES QUE ESTÉ MAL, OBVIO)
-    setTimeout(function () {
-        password1 && password2;
-    }, 3000);
-}
-
-//     var password = document.getElementById("password").value;  
-//    //validación de la extensión mínima de la contraseña  
-//     if(password.length < 8) {  
-//        document.getElementById("message").innerHTML = "La contraseña debe tener al menos 8 caracteres";  
-//        return false;  
-//     } else {
-//         alert("Contraseña incorrecta.")
-//     }
-
+const arrUsers = [];
 
 // function paintUser() {
 //     const userStorage = JSON.parse(localStorage.getItem("userStorage"));
 //     showUser.innerHTML = `Nombre: ${userStorage.name} Email: ${userStorage.email}`;
 // }
 // paintUser();
-myForm.addEventListener("submit", onSubmit);
+
+submit.addEventListener("click", onSubmit);

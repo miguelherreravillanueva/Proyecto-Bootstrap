@@ -7,19 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Bootstrap. Inicio</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
     <header>
-        <!-- CAMBIAR EL DISEÑO DEL NAVBAR AL GUSTO -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <nav class="navbar navbar-dark bg-primary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Proyecto Bootstrap</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -28,39 +32,86 @@
                         <li class="nav-item">
                             <a class="nav-link" href="pages/users.html">Usuarios</a>
                         </li>
-                        
                     </ul>
-                    
                 </div>
             </div>
         </nav>
+
     </header>
-    <form id="myForm"> 
-        <!-- PONERLE UN DISEÑO AL FORMULARIO -->
-        <h1>Crea tu usuario</h1>
-        <p>Por favor, rellena tus datos en cada casilla para poder completar tu ficha. ¡Gracias!</p>
-        <label for="firstname">Nombre</label>
-        <input type="text" id="name" name="name">
-        <br><br>
-        <label for="email">Correo</label>
-        <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com">
-        <br><br>
-        <label for="password1">Contraseña</label>
-        <input type="password" id="password1" name="password1">
-        <span id = "message" style="color:red"></span>
-        <br><br>
-        <label for="password2">Repita la contraseña</label>
-        <input type="password" id="password2" name="password2">
-        <span id = "message" style="color:red"></span>
-        <br><br>
-        <input type="submit" id="submit" value="Enviar">
-        <br><br>
 
-    </form>
-    <div class="showUser"></div>
+    <main>
 
-    <script src="main.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <h1>Crea tu Usuario</h1>
+        <p class="form-text">Por favor, rellena tus datos en cada casilla para poder completar tu ficha. ¡Gracias!</p>
+
+        <hr>
+
+        <form id="myForm">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" placeholder="Primer nombre" id="name">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="nombre@ejemplo.com" id="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">La contraseña debe tener al menos 8 caracteres, 1 número y 1
+                    símbolo.</div>
+                <span class="msgPass1" style="color:red"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirma tu Contraseña</label>
+                <input type="password" class="form-control" id="confirmPassword" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Repite la contraseña para validación.</div>
+                <span class="msgPass2" style="color:red"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit">Enviar</button>
+
+        </form>
+
+        <br>
+
+        <div class="showUser"></div>
+
+        <div class="divUser"></div>
+
+
+    </main>
+
 </body>
 
+<script src="main.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
 </html>
+
+
+
+<!-- <form id="myForm">
+    <label for="firstname">Nombre</label>
+    <input type="text" id="name" name="name">
+    <br><br>
+    <label for="email">Correo</label>
+    <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com">
+    <br><br>
+    <label for="password1">Contraseña</label>
+    <input type="password" id="password1" name="password1">
+    <span id="message" style="color:red"></span>
+    <br><br>
+    <label for="password2">Repita la contraseña</label>
+    <input type="password" id="password2" name="password2">
+    <span id="message" style="color:red"></span>
+    <br><br>
+    <input type="submit" id="submit" value="Enviar">
+    <br><br>
+</form> -->
