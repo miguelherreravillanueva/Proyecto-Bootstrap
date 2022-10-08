@@ -1,4 +1,4 @@
-const myForm = document.getElementById("myForm");
+// const myForm = document.getElementById("myForm");
 const firstName = document.getElementById("name");
 const email = document.getElementById("email");
 const password1 = document.getElementById("password");
@@ -7,6 +7,10 @@ const submit = document.getElementById("submit");
 const showUser = document.querySelector(".showUser");
 const msgPass1 = document.querySelector(".msgPass1");
 const msgPass2 = document.querySelector(".msgPass2");
+
+const divUser = document.getElementById(".divUser");
+
+const arrUsers = [];
 
 function onSubmit(e) {
   e.preventDefault();
@@ -42,44 +46,42 @@ function onSubmit(e) {
     msgPass2.innerHTML = "";
   }, 3000);
 
-  if (
-    firstName.value !== "" &&
-    email.value !== "" &&
-    password1.value !== "" &&
-    password2.value !== ""
-  ) {
-    setTimeout(function () {
-      window.location.href = "pages/users.html";
-    }, 3000);
-  }
+  // if (
+  //   firstName.value !== "" &&
+  //   email.value !== "" &&
+  //   password1.value !== "" &&
+  //   password2.value !== ""
+  // )
+    // {
+    //   setTimeout(function () {
+    //     window.location.href = "pages/users.html";
+    //   }, 3000);
+    // }
 
-  arrUsers.push(person);
+    arrUsers.push(person);
 
   localStorage.setItem("user", JSON.stringify(arrUsers));
 
-  const users = JSON.parse(localStorage.getItem("user"));
+  const users = JSON.parse(localStorage.getItem("user")) || [];
+  console.log(users);
 
   const user = users[users.length - 1];
 
+  let divUser = document.createElement("div");
+  document.body.appendChild(divUser);
   divUser.innerHTML = `<div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">${user.name}</h5>            
-            <p><b>Email: </b>${user.email}</p>
-          </div>   
-        </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="images/usuario.png" class="card-img-top" alt="Usuario">
+      <div class="card-body">
+        <h5 class="card-title"><b>Usuario: </b>${user.name}</h5>
+        <p><b>email: </b>${user.email}</p>
       </div>
-    </div>`;
+    </div>
+  </div>
+</div>`;
 }
 
-const arrUsers = [];
-
-// function paintUser() {
-//     const userStorage = JSON.parse(localStorage.getItem("userStorage"));
-//     showUser.innerHTML = `Nombre: ${userStorage.name} Email: ${userStorage.email}`;
-// }
-// paintUser();
-
 submit.addEventListener("click", onSubmit);
+
+
