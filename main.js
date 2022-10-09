@@ -8,78 +8,85 @@ const showUser = document.querySelector(".showUser");
 const msgPass1 = document.querySelector(".msgPass1");
 const msgPass2 = document.querySelector(".msgPass2");
 
-const divUser = document.getElementById(".divUser");
-
-const arrUsers = [];
+const divPerson = document.getElementById(".divPerson");
 
 function onSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const person = {
-    name: firstName.value,
-    email: email.value,
-    password1: password1.value,
-    password2: password2.value,
-  };
+    const person = {
+        name: firstName.value,
+        email: email.value,
+        password1: password1.value,
+        password2: password2.value,
+    };
 
-  //Validación que obliga a rellenar todos los campos
-  if (firstName.value === "" || email.value === "") {
-    showUser.innerHTML = `<div class="alert alert-primary" role="alert">Por favor, rellena los campos.</div>`;
-    //Validación para el correo
-  } else if (/(\w+?@\w+?\x2E.+)/.test(email.value) == false) {
-    showUser.innerHTML = `<div class="alert alert-primary" role="alert">Por favor, introduce un formato de correo correcto.</div>`;
-  } else if (password1.value.length == "") {
-    msgPass1.innerHTML = `<div class="alert alert-warning" role="alert">Por favor, escribe una contraseña.</div>`;
-    password1.focus();
-  } else if (password2.value.length == "") {
-    msgPass2.innerHTML = `<div class="alert alert-warning" role="alert">Confirma tu contraseña.</div>`;
-    password2.focus();
-  } else if (password1.value !== password2.value) {
-    showUser.innerHTML = `<div class="alert alert-warning" role="alert">Las contraseñas deben coincidir.</div>`;
-  } else {
-    showUser.innerHTML = `<div class="alert alert-success" role="alert">Tus credenciales han sido guardadas, correctamente!</div>`;
-  }
-  //Validación de formulario correcto de 3 seg.
-  setTimeout(function () {
-    showUser.innerHTML = "";
-    msgPass1.innerHTML = "";
-    msgPass2.innerHTML = "";
-  }, 3000);
-  
-  arrUsers.push(person);
-  
-  localStorage.setItem("user", JSON.stringify(arrUsers));
-  
-  const users = JSON.parse(localStorage.getItem("user")) || [];
-  console.log(users);
-  
-  const user = users[users.length - 1];
-  
-  let divUser = document.createElement("div");
-  document.body.appendChild(divUser);
-  divUser.innerHTML = `<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-  <div class="card h-100">
-  <img src="images/usuario.png" class="card-img-top" alt="Usuario">
-  <div class="card-body">
-  <h5 class="card-title"><b>Usuario: </b>${user.name}</h5>
-  <p><b>email: </b>${user.email}</p>
-  </div>
-  </div>
-  </div>
-  </div>`;
-  
-    if (
-      firstName.value !== "" &&
-      email.value !== "" &&
-      password1.value !== "" &&
-      password2.value !== ""
-    )
-      {
-        setTimeout(function () {
-          window.location.href = "../pages/users.html";
-        }, 3000);
-      }
+    //Validación que obliga a rellenar todos los campos
+    if (firstName.value === "" || email.value === "") {
+        showUser.innerHTML = `<div class="alert alert-primary" role="alert">Por favor, rellena los campos.</div>`;
+        //Validación para el correo
+    } else if (/(\w+?@\w+?\x2E.+)/.test(email.value) == false) {
+        showUser.innerHTML = `<div class="alert alert-primary" role="alert">Por favor, introduce un formato de correo correcto.</div>`;
+    } else if (password1.value.length == "") {
+        msgPass1.innerHTML = `<div class="alert alert-warning" role="alert">Por favor, escribe una contraseña.</div>`;
+        password1.focus();
+    } else if (password2.value.length == "") {
+        msgPass2.innerHTML = `<div class="alert alert-warning" role="alert">Confirma tu contraseña.</div>`;
+        password2.focus();
+    } else if (password1.value !== password2.value) {
+        showUser.innerHTML = `<div class="alert alert-warning" role="alert">Las contraseñas deben coincidir.</div>`;
+    } else {
+        showUser.innerHTML = `<div class="alert alert-success" role="alert">Tus credenciales han sido guardadas, correctamente!</div>`;
+       
+        const users = JSON.parse(localStorage.getItem("user")) || [];
+
+        users.push(person);
+
+        localStorage.setItem("user", JSON.stringify(users));
+        console.log(localStorage.getItem("user"))
+
+        console.log(users);
+
+        const user = users[users.length - 1];
+
+        let divPerson = document.createElement("div");
+        document.body.appendChild(divPerson);
+        divPerson.innerHTML = `<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+    <div class="card h-100">
+    <img src="images/usuario.png" class="card-img-top" alt="Usuario">
+    <div class="card-body">
+    <h5 class="card-title"><b>Usuario: </b>${user.name}</h5>
+    <p><b>email: </b>${user.email}</p>
+    </div>
+    </div>
+    </div>
+    </div>`;
+
+        for (let i = 0; i < localStorage.length; i++) {
+            let user = localStorage.user(i);
+            console.log(`${user}: ${localStorage.getItem(user)}`);
+        }
+
+        if (
+            firstName.value !== "" &&
+            email.value !== "" &&
+            password1.value !== "" &&
+            password2.value !== ""
+        ) {
+            setTimeout(function () {
+                window.location.href = "../pages/users.html";
+            }, 3000);
+        }
+    }
+
+    //Validación de formulario correcto de 3 seg.
+    setTimeout(function () {
+        showUser.innerHTML = "";
+        msgPass1.innerHTML = "";
+        msgPass2.innerHTML = "";
+    }, 3000);
+
+
 }
 
 submit.addEventListener("click", onSubmit);
