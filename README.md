@@ -22,10 +22,10 @@ https://docs.google.com/presentation/d/1pSPqTvPxdBrQICqlCVn6UEMx3rjtciN1b4onLfGB
 ### Preview
 
 Muestra del formulario:
-![foto] (images/viewForm.png)
+![foto] (https://github.com/miguelherreravillanueva/Proyecto-Bootstrap/blob/main/images/viewForm.png)
 
 Muestra de la página de usuarios:
-![foto] (images/viewUsers.png)
+![foto] (https://github.com/miguelherreravillanueva/Proyecto-Bootstrap/tree/main/images)
 
 
 ---
