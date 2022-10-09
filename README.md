@@ -25,9 +25,9 @@ Muestra del formulario:
 ![foto](https://github.com/miguelherreravillanueva/Proyecto-Bootstrap/blob/main/images/viewForm.png)
 
 Muestra de la página de usuarios:
-![foto](https://github.com/miguelherreravillanueva/Proyecto-Bootstrap/tree/main/images)
+![foto](https://github.com/miguelherreravillanueva/Proyecto-Bootstrap/blob/main/images/viewUsers.png)
 
 
 ---
 
-Hecho por [Miguel Herrera] (https://github.com/miguelherreravillanueva) y [Federico Arévalo] (https://github.com/Fede-Arevalo).
+Hecho por [Miguel Herrera](https://github.com/miguelherreravillanueva) y [Federico Arévalo](https://github.com/Fede-Arevalo).
