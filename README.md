@@ -19,12 +19,15 @@ Se ha utilizado HTML propio junto a los estilos CSS y JS de Bootstrap, modificá
 
 https://docs.google.com/presentation/d/1pSPqTvPxdBrQICqlCVn6UEMx3rjtciN1b4onLfGBJhg/edit#slide=id.g162ad37aa1d_0_101
 
+
 ### Preview
 
 Muestra del formulario:
+
 ![foto](https://github.com/miguelherreravillanueva/Proyecto-Bootstrap/blob/main/images/viewForm.png)
 
 Muestra de la página de usuarios:
+
 ![foto](https://github.com/miguelherreravillanueva/Proyecto-Bootstrap/blob/main/images/viewUsers.png)
 
 
