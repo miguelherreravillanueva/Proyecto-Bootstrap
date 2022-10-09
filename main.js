@@ -47,26 +47,7 @@ function onSubmit(e) {
         console.log(users);
 
         const user = users[users.length - 1];
-
-        let divPerson = document.createElement("div");
-        document.body.appendChild(divPerson);
-        divPerson.innerHTML = `<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-    <div class="card h-100">
-    <img src="images/usuario.png" class="card-img-top" alt="Usuario">
-    <div class="card-body">
-    <h5 class="card-title"><b>Usuario: </b>${user.name}</h5>
-    <p><b>email: </b>${user.email}</p>
-    </div>
-    </div>
-    </div>
-    </div>`;
-
-        for (let i = 0; i < localStorage.length; i++) {
-            let user = localStorage.user(i);
-            console.log(`${user}: ${localStorage.getItem(user)}`);
-        }
-
+   
         if (
             firstName.value !== "" &&
             email.value !== "" &&
