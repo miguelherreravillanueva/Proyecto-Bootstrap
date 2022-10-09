@@ -45,41 +45,41 @@ function onSubmit(e) {
     msgPass1.innerHTML = "";
     msgPass2.innerHTML = "";
   }, 3000);
-
-  // if (
-  //   firstName.value !== "" &&
-  //   email.value !== "" &&
-  //   password1.value !== "" &&
-  //   password2.value !== ""
-  // )
-    // {
-    //   setTimeout(function () {
-    //     window.location.href = "pages/users.html";
-    //   }, 3000);
-    // }
-
-    arrUsers.push(person);
-
+  
+  arrUsers.push(person);
+  
   localStorage.setItem("user", JSON.stringify(arrUsers));
-
+  
   const users = JSON.parse(localStorage.getItem("user")) || [];
   console.log(users);
-
+  
   const user = users[users.length - 1];
-
+  
   let divUser = document.createElement("div");
   document.body.appendChild(divUser);
   divUser.innerHTML = `<div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
-    <div class="card h-100">
-      <img src="images/usuario.png" class="card-img-top" alt="Usuario">
-      <div class="card-body">
-        <h5 class="card-title"><b>Usuario: </b>${user.name}</h5>
-        <p><b>email: </b>${user.email}</p>
-      </div>
-    </div>
+  <div class="card h-100">
+  <img src="images/usuario.png" class="card-img-top" alt="Usuario">
+  <div class="card-body">
+  <h5 class="card-title"><b>Usuario: </b>${user.name}</h5>
+  <p><b>email: </b>${user.email}</p>
   </div>
-</div>`;
+  </div>
+  </div>
+  </div>`;
+  
+    if (
+      firstName.value !== "" &&
+      email.value !== "" &&
+      password1.value !== "" &&
+      password2.value !== ""
+    )
+      {
+        setTimeout(function () {
+          window.location.href = "../pages/users.html";
+        }, 3000);
+      }
 }
 
 submit.addEventListener("click", onSubmit);
