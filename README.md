@@ -9,12 +9,12 @@ El siguiente proyecto colaborativo consta de la creación de una página web uti
 - Utilizar alerts de Bootstrap.
 
 
-# Herramientas utlizadas
+## Tecnologías utlizadas
 
 Se ha utilizado HTML propio junto a los estilos CSS y JS de Bootstrap, modificándolos al gusto. 
 
 
-## Enlace presentación Bootstrap
+### Enlace presentación Bootstrap
 
 https://docs.google.com/presentation/d/1pSPqTvPxdBrQICqlCVn6UEMx3rjtciN1b4onLfGBJhg/edit#slide=id.g162ad37aa1d_0_101
 
@@ -24,7 +24,7 @@ Muestra del formulario:
 ![foto] (images/viewForm.png)
 
 Muestra de la página de usuarios:
-[foto] (images/viewUsers.png)
+![foto] (images/viewUsers.png)
 
 
 ---
