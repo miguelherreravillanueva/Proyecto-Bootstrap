@@ -7,6 +7,7 @@ El siguiente proyecto colaborativo consta de la creación de una página web uti
 - Guardar la información recogida de cada uno de los usuarios en LocalStorage.
 - Implementar validaciones (rellenar los campos, correo, comprobar contraseñas, creación y duración de un mensaje).
 - Utilizar alerts de Bootstrap.
+- Mostrar en una nueva vista los datos recogidos en el LocalStorage, compialdos en una card de Bootstrap. 
 
 
 ## Tecnologías utlizadas
