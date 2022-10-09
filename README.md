@@ -14,10 +14,19 @@ El siguiente proyecto colaborativo consta de la creación de una página web uti
 Se ha utilizado HTML propio junto a los estilos CSS y JS de Bootstrap, modificándolos al gusto. 
 
 
+## Enlace presentación Bootstrap
+
+https://docs.google.com/presentation/d/1pSPqTvPxdBrQICqlCVn6UEMx3rjtciN1b4onLfGBJhg/edit#slide=id.g162ad37aa1d_0_101
+
 ### Preview
 
 Muestra del formulario:
- [foto]
+![foto] (images/viewForm.png)
 
 Muestra de la página de usuarios:
-[foto]
+[foto] (images/viewUsers.png)
+
+
+---
+
+Hecho por [Miguel Herrera] (https://github.com/miguelherreravillanueva) y [Federico Arévalo] (https://github.com/Fede-Arevalo).
