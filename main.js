@@ -55,7 +55,7 @@ function onSubmit(e) {
             password2.value !== ""
         ) {
             setTimeout(function () {
-                window.location.href = "../pages/users.html";
+                window.location.href = "../Proyecto-Bootstrap/pages/users.html";
             }, 3000);
         }
     }
